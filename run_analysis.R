@@ -1,4 +1,4 @@
-setwd('C:/li/online/gettingandcleaningdata')
+#setwd('C:/li/online/gettingandcleaningdata')
 
 # download file
 url = 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
@@ -9,7 +9,7 @@ unzip(zipfile="project.zip")
 
 # view files
 
-files = -list.files("UCI HAR Dataset", recursive=TRUE)
+files = list.files("UCI HAR Dataset", recursive=TRUE)
 files
 
 subject_test = read.table('UCI HAR Dataset/test/subject_test.txt')
@@ -78,5 +78,5 @@ names(data)
 
 library(plyr)
 data2 = aggregate(. ~subject + activity, data = data, mean)
-head(data2)
+data2
 write.table(data2, file = "tidydata.txt",row.name=FALSE)
